@@ -36,11 +36,8 @@ const app = express();
 const dbConfig = require('./database/db.json');
 
 
-mongoose.connect(dbConfig.url, {
-    socketTimeoutMS: 0,
-    keepAlive: true,
-    reconnectTries: 30
-});
+mongoose.connect(dbConfig.url, { useMongoClient:
+    true });
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbConfig.url}`.green);
