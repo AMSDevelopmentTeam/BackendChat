@@ -1,0 +1,23 @@
+{
+  "name": "newproject",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "colors": "^1.1.2",
+    "connect-mongo": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-session": "^1.15.6",
+    "hbs": "~4.0.1",
+    "mongoose": "^4.13.0",
+    "morgan": "~1.8.1",
+    "process": "^0.11.10",
+    "serve-favicon": "~2.4.2"
+  }
+}
