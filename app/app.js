@@ -8,6 +8,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const process = require('process');
 const colors = require('colors');
+
 // const session = require('express-session');
 // const passport = require('passport');
 
@@ -18,6 +19,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const io = require('socket.io')(server);
 
 /****************************************************
  *                  routes
@@ -57,6 +59,10 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
+/****************************************************
+ *                  Socket Connection Handles
+ ****************************************************/
+require('./services/socket')(io);
 
 
 // require('./helpers/passport');
