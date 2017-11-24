@@ -8,7 +8,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const process = require('process');
 const colors = require('colors');
-const http = require('http');
 
 
 // const session = require('express-session');
@@ -31,9 +30,6 @@ const routes = require('./routes/users/route');
  *                  additional
  ****************************************************/
 const app = express();
-const server = http.createServer(app);
-const io = require('socket.io')(server);
-
 
 /****************************************************
  *                  Connect to DB
@@ -62,10 +58,7 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
-/****************************************************
- *                  Socket Connection Handles
- ****************************************************/
-require('./services/socket')(io);
+
 
 
 // require('./helpers/passport');
@@ -132,11 +125,6 @@ app.use(function (err, req, res, next) {
         message: err.message,
         error: {}}});
 });
-
-
-// app.listen(3000, function(){
-//     console.log('Express server listening on port 3000');
-// });
 
 module.exports = app;
 
